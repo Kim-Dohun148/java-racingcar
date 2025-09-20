@@ -6,7 +6,7 @@ public class Racing {
     private String[] Play_Cars;
 
     public int get_round() {
-        // 게임 횟수 입력
+        // 시도 횟수 입력
         System.out.println("시도할 횟수는 몇회인가요?");
         String input = Console.readLine();
         int round = Integer.parseInt(input);
