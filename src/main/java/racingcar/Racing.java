@@ -3,8 +3,6 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Racing {
-    private String[] Play_Cars;
-
     public int get_round() {
         // 시도 횟수 입력
         System.out.println("시도할 횟수는 몇회인가요?");
@@ -17,5 +15,22 @@ public class Racing {
         }
         return round;
     }
+
+    public void display(String[] Players) {
+        for (int i = 0; i < Players.length; i++) {
+            System.out.printf("%s : %s", Players[i], "-".repeat(2));
+        }
+    }
+
+    /*public void Start() {
+        int round = get_round();
+
+        for (int i = 0; i < round; i++) {
+            //display();
+            //End();
+        }
+    }*/
+
+
 
 }
