@@ -4,17 +4,18 @@ import camp.nextstep.edu.missionutils.Console;
 
 
 public class Racing extends Car {
-    public int get_round() {
+    private int round;
+
+    public void get_round() {
         // 시도 횟수 입력
         System.out.println("시도할 횟수는 몇회인가요?");
         String input = Console.readLine();
-        int round = Integer.parseInt(input);
+        round = Integer.parseInt(input);
 
         // 입력 에외 처리
         if (round < 0) {
             throw new IllegalArgumentException("시도할 횟수는 음수일 수 없습니다.");
         }
-        return round;
     }
 
     public void display(Car Players) {
@@ -37,13 +38,22 @@ public class Racing extends Car {
         for (int i = 0; i < Players.Car_Names.length; i++) {
             if (Players.Move_count[i] == max) {
                 Winner[i] = Players.Car_Names[i];
-                }
             }
         }
+    }
 
+    public void Start(Car Players) {
+        get_round();
+        System.out.println("실행 결과");
 
+        for (int i = 0; i < round; i++) {
+            Players.Move();
+            display(Players);
+        }
+        End(Players);
     }
 
 
 
 }
+// test
