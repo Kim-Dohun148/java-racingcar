@@ -1,4 +1,7 @@
 package racingcar;
 
-public class Interface {
+import camp.nextstep.edu.missionutils.Randoms;
+
+interface Move {
+    public void move();
 }
