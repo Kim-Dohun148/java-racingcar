@@ -6,7 +6,12 @@ import java.util.ArrayList;
 public class Racing {
     private int round;
     private String[] players;
-    private int[] moveCount;
+    private int[] playersMoveCount;
+
+    private void getData(String[] names) {
+        players = names.clone();
+        playersMoveCount = new int[players.length];
+    }
 
     public void getRound() {
         System.out.println("시도할 횟수는 몇회인가요?");
@@ -16,12 +21,6 @@ public class Racing {
         if (round < 0) {
             throw new IllegalArgumentException("시도 횟수는 음수일 수 없습니다.");
         }
-    }
-
-    public void getPlayers() {
-    }
-    public void getMove() {
-        moveCount = new int[players.length];
     }
 
     public void display(String[] players) {
