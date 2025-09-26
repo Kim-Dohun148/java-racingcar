@@ -1,22 +1,19 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-
 import java.util.ArrayList;
-
 
 public class Racing extends Car {
     private int round;
 
-    // 시도 횟수 입력 함수
-    public void get_round() {
-        // 시도 횟수 입력
+    public void getRound() {
         System.out.println("시도할 횟수는 몇회인가요?");
         String input = Console.readLine();
         round = Integer.parseInt(input);
 
-        // 입력 예외 처리
-        if (round < 0) { throw new IllegalArgumentException("시도 횟수는 음수일 수 없습니다."); }
+        if (round < 0) {
+            throw new IllegalArgumentException("시도 횟수는 음수일 수 없습니다.");
+        }
     }
 
     // 게임 진행 상황 출력 함수
@@ -28,7 +25,7 @@ public class Racing extends Car {
     }
 
     // 게임 종료 및 우승자 출력 함수
-    public void End(Car Players) {
+    public void end(Car Players) {
         ArrayList<String> Winner = new ArrayList<String>();
         int max = Players.Move_count[0];
 
@@ -51,18 +48,19 @@ public class Racing extends Car {
             String Winners = String.join(", ", Winner);
             System.out.print(Winners);
         }
-        else { System.out.print(Winner.get(0)); }
+        else {
+            System.out.print(Winner.get(0));
+        }
 
     }
 
-    // 게임 진행 메인 함수
-    public void Start(Car Players) {
+    public void start(Car Players) {
         get_round();
         Players.get_Players_Move();
 
         System.out.println("실행 결과");
         for (int i = 0; i < round; i++) {
-            Players.Move();
+            Players.move();
             display(Players);
         }
         End(Players);
