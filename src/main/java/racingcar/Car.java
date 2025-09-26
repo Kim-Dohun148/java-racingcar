@@ -7,12 +7,14 @@ class Car implements Move {
     private static final int MOVING_FORWARD = 4;
     private static final int START = 0;
     private static final int END = 9;
+    private static final int MAX_LENGTH = 5;
 
     protected String[] names;
     protected int[] moveCount;
 
-    // 자동차 수 만큼 int 배열 정의
-    protected void getMove() { moveCount = new int[names.length]; }
+    protected void getMove() {
+        moveCount = new int[names.length];
+    }
 
     public void move() {
         for (int i = 0; i < names.length; i++) {
@@ -29,7 +31,9 @@ class Car implements Move {
 
         for (int i = 0; i < names.length; i++) {
             name = names[i];
-            if (name.length() > 5) { throw new IllegalArgumentException("이름은 5자 이하만 가능합니다."); }
+            if (name.length() > MAX_LENGTH) {
+                throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+            }
         }
     }
 }
