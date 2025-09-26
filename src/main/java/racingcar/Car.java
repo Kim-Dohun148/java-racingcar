@@ -3,35 +3,33 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
-class Car {
+class Car implements Move {
     private static final int MOVING_FORWARD = 4;
-    private static final int start = 0;
-    private static final int end = 9;
-    protected String[] Car_Names;
-    protected int[] Move_count;
+    private static final int START = 0;
+    private static final int END = 9;
+
+    protected String[] names;
+    protected int[] moveCount;
 
     // 자동차 수 만큼 int 배열 정의
-    protected void get_Players_Move() { Move_count = new int[Car_Names.length]; }
+    protected void getMove() { moveCount = new int[names.length]; }
 
-    // 자동차 전진 및 정지
-    protected void Move() {
-        for (int i = 0; i < Car_Names.length; i++) {
-            int random = Randoms.pickNumberInRange(start, end);
-            if (random >= MOVING_FORWARD) { Move_count[i] += 1; }
+    public void move() {
+        for (int i = 0; i < names.length; i++) {
+            int random = Randoms.pickNumberInRange(START, END);
+            if (random >= MOVING_FORWARD) { moveCount[i] += 1; }
         }
     }
 
-    protected void get_Car_Names() {
-        // 이름 입력
+    protected void getNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String Car_String = Console.readLine();
-        Car_Names = Car_String.split(",");
-        String Car_Name;
+        String string = Console.readLine();
+        names = string.split(",");
+        String name;
 
-        // 이름 예외 처리
-        for (int i = 0; i < Car_Names.length; i++) {
-            Car_Name = Car_Names[i];
-            if (Car_Name.length() > 5) { throw new IllegalArgumentException("이름은 5자 이하만 가능합니다."); }
+        for (int i = 0; i < names.length; i++) {
+            name = names[i];
+            if (name.length() > 5) { throw new IllegalArgumentException("이름은 5자 이하만 가능합니다."); }
         }
     }
 }
