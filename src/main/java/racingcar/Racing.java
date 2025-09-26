@@ -31,23 +31,21 @@ public class Racing {
         System.out.println();
     }
 
-    // 게임 종료 및 우승자 출력 함수
-    public void end(Car Players) {
+    public void end() {
         ArrayList<String> Winner = new ArrayList<String>();
-        int max = Players.Move_count[0];
+        int max = playersMoveCount[0];
 
-        // 최대 이동횟수 찾기
-        for (int i = 0; i < Players.Car_Names.length; i++) {
-            for (int j = i + 1; j < Players.Car_Names.length; j++) {
-                if (max <= Players.Move_count[j]) {
-                    max = Players.Move_count[j];
+        for (int i = 0; i < players.length; i++) {
+            for (int j = i + 1; j < players.length; j++) {
+                if (max <= playersMoveCount[j]) {
+                    max = playersMoveCount[j];
                 }
             }
         }
         // 우승자 리스트 추가
-        for (int i = 0; i < Players.Car_Names.length; i++) {
-            if (Players.Move_count[i] == max) {
-                Winner.add(Players.Car_Names[i]);
+        for (int i = 0; i < players.length; i++) {
+            if (playersMoveCount[i] == max) {
+                Winner.add(players[i]);
             }
         }
         System.out.print("최종 우승자 : ");
