@@ -23,11 +23,10 @@ public class Racing {
         }
     }
 
-    public void display(String[] players) {
+    public void display() {
         for (int i = 0; i < players.length; i++) {
             System.out.printf("%s : ", players[i]);
-            System.out.printf("%s", "-".repeat());
-
+            System.out.printf("%s", "-".repeat(playersMoveCount[i]));
         }
         System.out.println();
     }
