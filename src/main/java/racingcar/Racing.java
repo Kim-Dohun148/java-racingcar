@@ -3,8 +3,10 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 
-public class Racing extends Car {
+public class Racing {
     private int round;
+    private String[] players;
+    private int[] moveCount;
 
     public void getRound() {
         System.out.println("시도할 횟수는 몇회인가요?");
@@ -16,10 +18,17 @@ public class Racing extends Car {
         }
     }
 
-    // 게임 진행 상황 출력 함수
-    public void display(Car Players) {
-        for (int i = 0; i < Players.Car_Names.length; i++) {
-            System.out.printf("%s : %s\n", Players.Car_Names[i], "-".repeat(Players.Move_count[i]));
+    public void getPlayers() {
+    }
+    public void getMove() {
+        moveCount = new int[players.length];
+    }
+
+    public void display(String[] players) {
+        for (int i = 0; i < players.length; i++) {
+            System.out.printf("%s : ", players[i]);
+            System.out.printf("%s", "-".repeat());
+
         }
         System.out.println();
     }
