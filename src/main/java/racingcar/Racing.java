@@ -5,10 +5,10 @@ import java.util.ArrayList;
 
 public class Racing {
     private int round;
-    private Car car;
+    private Car players;
 
-    public Racing() {
-        car = new Car();
+    public Racing(Car car) {
+        players = car;
     }
 
     public void getRound() {
@@ -22,28 +22,28 @@ public class Racing {
     }
 
     public void display() {
-        for (int i = 0; i < car.names.length; i++) {
-            System.out.printf("%s : ", car.names[i]);
-            System.out.printf("%s", "-".repeat(car.moveCount[i]));
+        for (int i = 0; i < players.names.length; i++) {
+            System.out.printf("%s : ", players.names[i]);
+            System.out.printf("%s", "-".repeat(players.moveCount[i]));
         }
         System.out.println();
     }
 
     public void end() {
         ArrayList<String> Winner = new ArrayList<String>();
-        int max = car.moveCount[0];
+        int max = players.moveCount[0];
 
-        for (int i = 0; i < car.names.length; i++) {
-            for (int j = i + 1; j < car.names.length; j++) {
-                if (max <= car.moveCount[j]) {
-                    max = car.moveCount[j];
+        for (int i = 0; i < players.names.length; i++) {
+            for (int j = i + 1; j < players.names.length; j++) {
+                if (max <= players.moveCount[j]) {
+                    max = players.moveCount[j];
                 }
             }
         }
         // 우승자 리스트 추가
-        for (int i = 0; i < car.names.length; i++) {
-            if (car.moveCount[i] == max) {
-                Winner.add(car.names[i]);
+        for (int i = 0; i < players.names.length; i++) {
+            if (players.moveCount[i] == max) {
+                Winner.add(players.names[i]);
             }
         }
         System.out.print("최종 우승자 : ");
@@ -62,7 +62,7 @@ public class Racing {
 
         System.out.println("실행 결과");
         for (int i = 0; i < round; i++) {
-            car.move();
+            players.move();
             display();
         }
         end();
