@@ -55,7 +55,6 @@ public class Racing {
         else {
             System.out.print(Winner.get(0));
         }
-
     }
 
     public void start() {
