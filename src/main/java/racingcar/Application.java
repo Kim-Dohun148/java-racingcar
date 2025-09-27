@@ -6,9 +6,9 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Application {
     public static void main(String[] args) {
         Car car = new Car();
-        Racing Game = new Racing();
+        car.getNames();
 
-        car.get_Car_Names();
-        Game.Start(car);
+        Racing game = new Racing(car);
+        game.start();
     }
 }
