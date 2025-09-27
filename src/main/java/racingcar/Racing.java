@@ -10,12 +10,7 @@ public class Racing {
     public Racing() {
         car = new Car();
     }
-
-    private void getData(String[] names) {
-        players = names.clone();
-        playersMoveCount = new int[players.length];
-    }
-
+    
     public void getRound() {
         System.out.println("시도할 횟수는 몇회인가요?");
         String input = Console.readLine();
