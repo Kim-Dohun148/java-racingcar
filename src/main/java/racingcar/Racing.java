@@ -10,7 +10,7 @@ public class Racing {
     public Racing() {
         car = new Car();
     }
-    
+
     public void getRound() {
         System.out.println("시도할 횟수는 몇회인가요?");
         String input = Console.readLine();
@@ -22,28 +22,28 @@ public class Racing {
     }
 
     public void display() {
-        for (int i = 0; i < players.length; i++) {
-            System.out.printf("%s : ", players[i]);
-            System.out.printf("%s", "-".repeat(playersMoveCount[i]));
+        for (int i = 0; i < car.names.length; i++) {
+            System.out.printf("%s : ", car.names[i]);
+            System.out.printf("%s", "-".repeat(car.moveCount[i]));
         }
         System.out.println();
     }
 
     public void end() {
         ArrayList<String> Winner = new ArrayList<String>();
-        int max = playersMoveCount[0];
+        int max = car.moveCount[0];
 
-        for (int i = 0; i < players.length; i++) {
-            for (int j = i + 1; j < players.length; j++) {
-                if (max <= playersMoveCount[j]) {
-                    max = playersMoveCount[j];
+        for (int i = 0; i < car.names.length; i++) {
+            for (int j = i + 1; j < car.names.length; j++) {
+                if (max <= car.moveCount[j]) {
+                    max = car.moveCount[j];
                 }
             }
         }
         // 우승자 리스트 추가
-        for (int i = 0; i < players.length; i++) {
-            if (playersMoveCount[i] == max) {
-                Winner.add(players[i]);
+        for (int i = 0; i < car.names.length; i++) {
+            if (car.moveCount[i] == max) {
+                Winner.add(car.names[i]);
             }
         }
         System.out.print("최종 우승자 : ");
@@ -62,6 +62,7 @@ public class Racing {
 
         System.out.println("실행 결과");
         for (int i = 0; i < round; i++) {
+            car.move();
             display();
         }
         end();
