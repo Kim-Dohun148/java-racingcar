@@ -25,6 +25,7 @@ public class Racing {
         for (int i = 0; i < players.names.length; i++) {
             System.out.printf("%s : ", players.names[i]);
             System.out.printf("%s", "-".repeat(players.moveCount[i]));
+            System.out.println();
         }
         System.out.println();
     }
