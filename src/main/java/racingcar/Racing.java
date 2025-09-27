@@ -5,8 +5,11 @@ import java.util.ArrayList;
 
 public class Racing {
     private int round;
-    private String[] players;
-    private int[] playersMoveCount;
+    private Car car;
+
+    public Racing() {
+        car = new Car();
+    }
 
     private void getData(String[] names) {
         players = names.clone();
@@ -59,15 +62,13 @@ public class Racing {
 
     }
 
-    public void start(Car Players) {
-        get_round();
-        Players.get_Players_Move();
+    public void start() {
+        getRound();
 
         System.out.println("실행 결과");
         for (int i = 0; i < round; i++) {
-            Players.move();
-            display(Players);
+            display();
         }
-        End(Players);
+        end();
     }
 }
