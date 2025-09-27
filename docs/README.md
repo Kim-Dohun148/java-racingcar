@@ -41,7 +41,6 @@ SOLID 원칙
 ■ OCP - 개방폐쇠원칙 (확장 O, 수정 X)
 
 ■ LSP - 리스코프치환원칙 (하위타입은 언제나 상위타입으로 교체 가능해야함)
-- Racing class 하위타입, Car class 상위타입
 
 ■ ISP - 인터페이스 분리 (목적, 용도에 적합한 인터페이스만을 제공)
 - 자동차 움직임 기능을 인터페이스로 분리하여 제공
@@ -56,5 +55,32 @@ SOLID 원칙
 - refactor : 코드를 리팩토링
 - test : Test 관련한 코드의 추가, 수정
 - chore (코드의 수정 없이) 설정을 변경
-ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
+■ 자바 네이밍 규칙
+- 클래스 (Class)
+    클래스명은 파스칼을 사용한다.
+    클래스명은 명사로 시작한다.
+    인터페이스, 추상 클래스, 인터페이스를 구현하는 클래스
+        Ex) public abstract class Animal {}
+
+- 메소드
+    메소드는 카멜 표기법으로 (첫자는 소문자)
+    동사로 시작
+    computeAge( ) , printName( )
+
+- 변수
+    소문자 OR 파스칼
+    String userName;
+    Integer age
+
+- 상수 (final)
+    대문자
+    한번 선언되고 바뀌지 않는 변수는, static final 처리
+
+■ 수정
+- Application.java car, Game 명명 수정
+- Car.java start, end 명명 수정
+- 메소드 형태 유지
+- Racing, Car 상속 관계 수정
+- 이름 예외처리 제한 글자수도 상수화
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
