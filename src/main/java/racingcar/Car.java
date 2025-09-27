@@ -1,4 +1,4 @@
-﻿package racingcar;
+package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
@@ -19,7 +19,9 @@ class Car implements Move {
     public void move() {
         for (int i = 0; i < names.length; i++) {
             int random = Randoms.pickNumberInRange(START, END);
-            if (random >= MOVING_FORWARD) { moveCount[i] += 1; }
+            if (random >= MOVING_FORWARD) {
+                moveCount[i] += 1;
+            }
         }
     }
 
