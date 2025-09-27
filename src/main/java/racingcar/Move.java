@@ -1,4 +1,5 @@
 package racingcar;
 
-public interface Move {
+interface Move {
+    void move();
 }
